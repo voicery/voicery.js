@@ -1,0 +1,58 @@
+<html>
+    <header>
+        <!-- Import Bootstrap from CDN for form styling -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script type="module">
+          import createVoiceryRequestUrl from "../voicery-browser.js"
+          window.createVoiceryRequestUrl = createVoiceryRequestUrl;
+        </script>
+        <script>
+          /**
+           *  Button click callback that manages audio playback.
+           */
+          function play() {
+            // Generate request URL based on input text.
+            const text = document.getElementById("text-input").value;
+            const url = createVoiceryRequestUrl({ text, speaker: "steven" })
+
+            // Create and play new HTML5 Audio.
+            const newAudio = new Audio(url);
+            newAudio.preload = "auto";
+            newAudio.play();
+
+            // Show button Loading.
+            const button = document.getElementById("play-button");
+            button.innerText = "Loading...";
+            button.disabled = true;
+
+            // Show button playing.
+            newAudio.addEventListener("playing", () => {
+              button.innerText = "Playing..."
+            });
+
+            // Reset button on end.
+            newAudio.addEventListener("ended", () => {
+              button.innerText = "Play";
+              button.disabled = false;
+            });
+          }
+        </script>
+    </header>
+    </body>
+      <div class="container" style="padding-top: 100px">
+        <div class="row">
+          <div class="form-group">
+            <textarea id="text-input" class="form-control" rows="3">Hello world!</textarea>
+          </div>
+        </div>
+        <div class="row">
+          <button
+            id="play-button"
+            onClick="play()"
+            type="button" class="btn btn-primary btn-lg btn-block">
+            Play
+          </button>
+        </div>
+      </div>
+    </body>
+</html>

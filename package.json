@@ -1,0 +1,19 @@
+{
+  "name": "voicery.js",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A Javascript wrapper for the Voicery text-to-speech API",
+  "repository": "git@github.com:voicery/voicery.js.git",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup --config",
+    "demo-nodejs": "node demos/nodejs.js",
+    "demo-browser": "http-server -o demos/browser.html"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.1"
+  }
+}
