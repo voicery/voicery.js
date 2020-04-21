@@ -70,7 +70,7 @@ const VoiceryClient = require("./voicery-nodejs");
 Then you can access the `VoiceryClient`. For example:
 
 ```
-const client = VoiceryClient();
+const client = VoiceryClient(/* YOUR API KEY HERE */);
 const speakers = await client.getAvailableSpeakers();
 speakers.forEach(speaker => {
   console.log(`Speaker: ${speaker.id}`);

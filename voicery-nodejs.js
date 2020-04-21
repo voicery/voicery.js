@@ -10,6 +10,13 @@ class VoiceryError extends Error {
 }
 
 class VoiceryClient {
+  /**
+   *  Creates a new handle to Voicery API.
+   *
+   *  Arguments:
+   *    - key: An API key to use. By default use no key.
+   *           API requests with no key will be heavily rate-limited.
+   */
   constructor(key) {
     this.key = key;
   }

@@ -3,7 +3,7 @@ const fs = require("fs");
 const VoiceryClient = require("../voicery-nodejs");
 
 const main = async () => {
-  const client = VoiceryClient();
+  const client = VoiceryClient(/* YOUR API KEY HERE */);
   const speakers = await client.getAvailableSpeakers();
   speakers.forEach(speaker => {
     console.log(`Speaker: ${speaker.id}`);
